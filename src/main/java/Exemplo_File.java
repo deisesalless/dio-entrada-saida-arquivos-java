@@ -3,7 +3,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ExemploFile {
+public class Exemplo_File {
     public static void main(String[] args) {
         // só passo o nome porque o arquivo está no diretorio raiz, ou seja, no mesmo local que o src
         File f = new File("arquivo-teste.txt");
