@@ -1,3 +1,5 @@
+package Caracteres;
+
 import java.io.*;
 
 // Faça uma cópia do arquivo "recomendacoes.txt" e agora adicione 3 recomendações de livros
