@@ -1,5 +1,7 @@
 import java.io.*;
 
+
+// Criar arquivo "recomendacoes.txt" com a indicação de 3 filmes com entrada via console
 public class Exercicio2_EscreverArquivo {
 
     public static void lerTecladoEscreverArquivo() throws IOException {
