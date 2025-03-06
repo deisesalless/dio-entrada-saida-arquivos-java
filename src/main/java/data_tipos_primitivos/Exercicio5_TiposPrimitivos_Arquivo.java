@@ -10,7 +10,7 @@ import java.io.*;
 public class Exercicio5_TiposPrimitivos_Arquivo {
 
     public static void incluirProduto() throws IOException {
-        File file = new File("./documents/roupas.bin");
+        File file = new File("documents/roupas.bin");
 
         // Entrada
         PrintStream printStream = new PrintStream(System.out, true);
@@ -19,7 +19,7 @@ public class Exercicio5_TiposPrimitivos_Arquivo {
         // Saida
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        // Para escrever os tipos primitivos no file
+        // Para criar o arquivo para escrever os tipos primitivos no file
         DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(file.getPath()));
 
         printStream.println("Digite o nome do produto de roupa: ");
@@ -40,6 +40,9 @@ public class Exercicio5_TiposPrimitivos_Arquivo {
         dataOutputStream.writeInt(quantity);
         dataOutputStream.writeDouble(price);
 
+        printStream.printf("O arquivo \"%s\" foi criado com %d bytes no diretório \"%s\"",
+                file.getName(), file.length(), file.getAbsolutePath()).append("\n");
+
         lerProduto(file.getPath());
 
         printStream.flush();
@@ -49,13 +52,16 @@ public class Exercicio5_TiposPrimitivos_Arquivo {
 
     public static void lerProduto(String filePath) throws IOException {
         File file = new File(filePath);
+
+        // Para leitura do arquivo que contém as informações do tipo dados primitivos
         DataInputStream dataInputStream = new DataInputStream(new FileInputStream(file));
 
         String name = dataInputStream.readUTF();
         char size = dataInputStream.readChar();
         int quantity = dataInputStream.readInt();
         double price = dataInputStream.readDouble();
-        System.out.printf("nome: %s | tamanho: %s | quantidade em estoque: %d | preço: %.2f | preço total do estoque %.2f", name, size, quantity, price, (quantity * price));
+        System.out.printf("Info do produto: nome: %s | tamanho: %s | quantidade em estoque: %d | preço: %.2f | preço total do estoque %.2f",
+                name, size, quantity, price, (quantity * price));
 
         dataInputStream.close();
     }
